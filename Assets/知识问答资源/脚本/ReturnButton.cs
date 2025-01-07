@@ -8,7 +8,6 @@ public class ReturnButton : MonoBehaviour, _ISeriportInput
     List<int> clickedbuttonIndex = new List<int>();
     float timeout = 0;
     // Start is called before the first frame update
-
     private void Update() { //更新函数
         if(Time.time - timeout > 1) //如果时间大于1秒
         {
@@ -26,6 +25,7 @@ public class ReturnButton : MonoBehaviour, _ISeriportInput
         if(clickedbuttonIndex.Contains(buttonIndex)) //如果列表中包含这个索引   
         {
             return;
+
         }
         clickedbuttonIndex.Add(buttonIndex); //添加到列表
         timeout = Time.time; //设置时间
