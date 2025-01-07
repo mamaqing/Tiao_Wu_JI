@@ -9,11 +9,11 @@ public class ReturnButton : MonoBehaviour, _ISeriportInput
     float timeout = 0;
     // Start is called before the first frame update
     private void Update() { //更新函数
-        if(Time.time - timeout > 1) //如果时间大于1秒
+        if(Time.time - timeout > 2f) //如果时间大于2秒
         {
             clickedbuttonIndex.Clear(); //清空列表
         }
-        if(clickedbuttonIndex.Count == 3)
+        if(clickedbuttonIndex.Count == 4)  //如果同时按下4个按钮
         {
             SceneManager.LoadScene(0);//返回主菜单
         }
