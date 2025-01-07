@@ -13,7 +13,7 @@ public class ReturnButton : MonoBehaviour, _ISeriportInput
         {
             clickedbuttonIndex.Clear(); //清空列表
         }
-        if(clickedbuttonIndex.Count == 2)
+        if(clickedbuttonIndex.Count == 3)
         {
             SceneManager.LoadScene(0);//返回主菜单
         }
