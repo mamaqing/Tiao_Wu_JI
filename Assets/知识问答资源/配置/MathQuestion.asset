@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65814c4c9dcf5e74392f82bc260f0ff3, type: 3}
+  m_Name: MathQuestion
+  m_EditorClassIdentifier: 
+  singleQuestions:
+  - QuestionText: "2+3+4=\uFF1F"
+    AnswerText:
+    - 6
+    - 7
+    - 8
+    - 9
+    CorrectAnswerIndex: 3
+  - QuestionText: "11-5+6=\uFF1F"
+    AnswerText:
+    - 2
+    - 1
+    - 0
+    - 12
+    CorrectAnswerIndex: 3
+  - QuestionText: "3+8+1=\uFF1F"
+    AnswerText:
+    - 13
+    - 12
+    - 11
+    - 14
+    CorrectAnswerIndex: 1
+  - QuestionText: "10.5-9.5+1=\uFF1F"
+    AnswerText:
+    - 1.5
+    - 1
+    - 2
+    - 0
+    CorrectAnswerIndex: 2
+  - QuestionText: 11.5+55.5=?
+    AnswerText:
+    - 66
+    - 66.5
+    - 67
+    - 67.5
+    CorrectAnswerIndex: 2
+  - QuestionText: "10-6+5=\uFF1F"
+    AnswerText:
+    - 10
+    - 11
+    - 5
+    - 9
+    CorrectAnswerIndex: 3
+  multipleQuestions:
+  - QuestionText:
+    - 9
+    - 15-8
+    - 6
+    - 20-13
+    CorrectAnswerIndex: 0
+  - QuestionText:
+    - 6+7
+    - 13
+    - 14
+    - 25-18
+    CorrectAnswerIndex: 2
+  - QuestionText:
+    - "1\xD710"
+    - 10
+    - 11
+    - "20\xD72"
+    CorrectAnswerIndex: 3
+  - QuestionText:
+    - 55-5
+    - 67-7
+    - 60
+    - 55+6
+    CorrectAnswerIndex: 3
+  - QuestionText:
+    - 33-22
+    - 33-10-10
+    - 10+55-5
+    - 33+10+10
+    CorrectAnswerIndex: 2
