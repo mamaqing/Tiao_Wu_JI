@@ -4,25 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainSceneManager : MonoBehaviour
+public class MainSceneManager : MonoBehaviour, _ISeriportInput
 {
     // Start is called before the first frame update
     void Start()
     {
-        SeriportManager.instance.OnDataReceived += OnDataReceived;
+        
     }
 
-    private void OnDataReceived(byte[] recivedBytes)
-    {
-        if (recivedBytes.Length < 8)
 
-            return;
-       // Debug.Log("recivedBytes[7]: " + recivedBytes[4]-48);
-        SceneManager.LoadScene(recivedBytes[7]);
-
-    }
     void OnDestroy()
     {
-        SeriportManager.instance.OnDataReceived -= OnDataReceived;
+        
+    }
+
+    public void OnDataReceived(int buttonIndex)
+    {
+       SceneManager.LoadScene(buttonIndex+1);
     }
 }

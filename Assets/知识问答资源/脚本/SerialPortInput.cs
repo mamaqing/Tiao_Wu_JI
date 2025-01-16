@@ -10,20 +10,22 @@ public interface _ISeriportInput //串口输入接口
 public class SerialPortInput : MonoBehaviour
 {
     // Start is called before the first frame update
+    SerialPortUtilityManager serialPortUtilityManager;
     void Start()
     {
-        SeriportManager.instance.OnDataReceived += OnDataReceived;
+        serialPortUtilityManager = FindObjectOfType<SerialPortUtilityManager>();
+        serialPortUtilityManager.OnSerialDataReceived += OnDataReceived;
     }
 
     private void OnDataReceived(byte[] recivedBytes)
     {
         if (recivedBytes.Length < 8)
             return;
-        GetComponent<_ISeriportInput>().OnDataReceived(recivedBytes[7]-1);
-
+        GetComponent<_ISeriportInput>().OnDataReceived(recivedBytes[7] - 1);
     }
-    private void OnDestroy() {
-        SeriportManager.instance.OnDataReceived -= OnDataReceived;
+    private void OnDestroy()
+    {
+        serialPortUtilityManager.OnSerialDataReceived -= OnDataReceived;
     }
     // Update is called once per fra
 }

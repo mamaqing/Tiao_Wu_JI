@@ -17,7 +17,7 @@ public class Question
     public string anser4;
     public string rightAnser_1;
 }
-public class SceneManagerment : MonoBehaviour
+public class SceneManagerment : MonoBehaviour, _ISeriportInput
 {
     // Start is called before the first frame update
     [SerializeField] Sprite[] sprites;//0 ，1，2 改变Iimage图片状态
@@ -58,7 +58,7 @@ public class SceneManagerment : MonoBehaviour
     bool buttonState = true; //按键状态
     int questionIndex = 0; //题目进度计数
 
-  
+
 
     void Start()
     {
@@ -71,34 +71,14 @@ public class SceneManagerment : MonoBehaviour
         C_Button.onClick.AddListener(C_ButtonAnserQustion);
         D_Button.onClick.AddListener(D_ButtonAnserQustion);
         Finalscore.transform.localScale = Vector3.zero; // 初始化时隐藏成绩面板
-        SeriportManager.instance.OnDataReceived += OnDataReceived;
+
 
     }
 
-    private void OnDataReceived(byte[] recivedBytes)
-    {
-        if (recivedBytes.Length < 8)
-            return;
-        switch (recivedBytes[7])
-        {
-            case 0x01:
-                A_ButtonAnserQustion();
-                break;
-            case 0x02:
-                B_ButtonAnserQustion();
-                break;
-            case 0x03:
-                C_ButtonAnserQustion();
-                break;
-            case 0x04:
-                D_ButtonAnserQustion();
-                break;
-        }
-    
-    }
+
     void OnDestroy()
     {
-        SeriportManager.instance.OnDataReceived -= OnDataReceived;
+
     }
     void DisQuestion() //显示问题状态进度
     {
@@ -482,5 +462,22 @@ public class SceneManagerment : MonoBehaviour
         WrongQuantity.text = wrongCount.ToString();
     }
 
-
+    public void OnDataReceived(int buttonIndex)
+    {
+        switch (buttonIndex + 1)
+        {
+            case 0x01:
+                A_ButtonAnserQustion();
+                break;
+            case 0x02:
+                B_ButtonAnserQustion();
+                break;
+            case 0x03:
+                C_ButtonAnserQustion();
+                break;
+            case 0x04:
+                D_ButtonAnserQustion();
+                break;
+        }
+    }
 }
